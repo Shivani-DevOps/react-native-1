@@ -1,9 +1,9 @@
 # Android
-- task: DownloadPipelineArtifact@2
+- task: PublishPipelineArtifact@1
   inputs:
-    buildType: 'current'
-    artifactName: 'pipelineapk'
     targetPath: '$(Pipeline.Workspace)'
+    artifact: 'apk'
+    publishLocation: 'pipeline'
 # Build your Android project with Gradle.
 # Add steps that test, sign, and distribute the APK, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/android
