@@ -24,8 +24,9 @@ steps:
     apksign: false
     zipalign: false
     tasks: 'assembleDebug'
-- task: PublishPipelineArtifact@1
+- task: DownloadBuildArtifacts@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: 'apk'
-    publishLocation: 'pipeline'
+    buildType: 'current'
+    downloadType: 'specific'
+    itemPattern: '''**/*.apk'''
+    downloadPath: '$(System.ArtifactsDirectory)'
