@@ -26,7 +26,7 @@ steps:
     apkFiles: '**/*.apk'
     apksign: false
     zipalign: false
-    tasks: assembleDebug
+    tasks: 'assembleDebug'
 
 - task: DownloadBuildArtifacts@0
   inputs:
