@@ -28,11 +28,14 @@ steps:
     apksign: false
     zipalign: false
 
-- task: PublishBuildArtifacts@1
+- task: CopyFiles@2
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    targetFolder: '$(Build.ArtifactStagingDirectory)'    
+ 
+- task: PublishBuildArtifacts@1    
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
 
 - task: DownloadBuildArtifacts@0
   inputs:
