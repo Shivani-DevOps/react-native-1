@@ -24,12 +24,11 @@ steps:
     apksign: false
     zipalign: false
     tasks: 'assembleDebug'
-- task: DownloadBuildArtifacts@1
+- task: DownloadPipelineArtifact@2
   inputs:
     buildType: 'current'
-    downloadType: 'specific'
+    artifactName: 'apk'
     itemPattern: '**/*.apk'
-    downloadPath: '$(System.ArtifactsDirectory)'
-
+    targetPath: '$(Pipeline.Workspace)'
 
 
