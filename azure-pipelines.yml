@@ -30,4 +30,4 @@ steps:
   inputs:
     artifact: WebApp
     patterns: '**/*.apk'
-    path: $(Build.SourcesDirectory)/bin
+    path: $(Build.SourcesDirectory)
