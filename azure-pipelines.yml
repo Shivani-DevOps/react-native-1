@@ -26,15 +26,8 @@ steps:
     apkFiles: '**/*.apk'
     apksign: false
     zipalign: false
-- task: DownloadBuildArtifacts@0
+- task: DownloadPipelineArtifact@2
   inputs:
-    buildType: 'specific'
-    project: '9a1ba8cd-871a-4b78-a43f-fc4578180fe8'
-    pipeline: '3'
-    specificBuildWithTriggering: true
-    buildVersionToDownload: 'latest'
-    tags: 'apk'
-    downloadType: 'single'
-    artifactName: 'apk'
-    itemPattern: '**/*.apk'
-    downloadPath: '$(System.ArtifactsDirectory)'
+    artifact: WebApp
+    patterns: '**/*.apk'
+    path: $(Build.SourcesDirectory)/bin
