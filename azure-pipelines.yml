@@ -29,7 +29,7 @@ steps:
   inputs:
     buildType: 'current'
     downloadType: 'single'
-    artifactName: 'webapp'
+    artifactName: 'apk'
     itemPattern: '**/*.apk'
     downloadPath: '$(System.ArtifactsDirectory)'
 
