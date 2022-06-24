@@ -26,10 +26,15 @@ steps:
     apkFiles: '**/*.apk'
     apksign: false
     zipalign: false
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'current'
     downloadType: 'single'
-    artifactName: 'webapp'
-    itemPattern: '**/*.apk'
+    artifactName: 'apk'
+    itemPattern: '''**/*apk'''
     downloadPath: '$(System.ArtifactsDirectory)'
