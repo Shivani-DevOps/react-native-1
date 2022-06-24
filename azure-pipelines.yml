@@ -20,19 +20,18 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
+    tasks: 'assembleRelease'
 
 - task: AndroidSigning@3
   inputs:
     apkFiles: '**/*.apk'
     apksign: false
     zipalign: false
-    tasks: 'assembleDebug'
 
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'current'
-    downloadType: 'single'
-    artifactName: 'app'
-    itemPattern: '/**'
+    downloadType: 'specific'
+    itemPattern: '''**/*.apk'''
     downloadPath: '$(System.ArtifactsDirectory)'
     
