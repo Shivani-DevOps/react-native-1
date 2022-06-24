@@ -24,13 +24,13 @@ steps:
     apksign: false
     zipalign: false
     tasks: 'assembleDebug'
-
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'current'
     downloadType: 'single'
-    artifactName: 'apk'
+    artifactName: '**/*.apk'
     itemPattern: '**/*.apk'
     downloadPath: '$(System.ArtifactsDirectory)'
+
 
 
