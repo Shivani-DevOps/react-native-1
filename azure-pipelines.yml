@@ -24,9 +24,13 @@ steps:
     apksign: false
     zipalign: false
     tasks: 'assembleDebug'
-- task: DownloadBuildArtifacts@1
+
+- task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'current'
-    downloadType: 'specific'
-    itemPattern: '''**/*.apk'''
+    downloadType: 'single'
+    artifactName: 'webapp'
+    itemPattern: '**/*.apk'
     downloadPath: '$(System.ArtifactsDirectory)'
+
+
